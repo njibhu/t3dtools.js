@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2018 Njibhu <manu@njibhu.eu>
  * This code is published under MIT License.
  **/

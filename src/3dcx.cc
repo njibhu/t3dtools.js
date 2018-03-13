@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2012 Rhoot <https://github.com/rhoot>
  * https://github.com/rhoot/Gw2Browser/blob/master/src/Readers/ImageReader.cpp
  * 
