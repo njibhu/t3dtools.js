@@ -1,9 +1,16 @@
+/**
+ * Copyright 2018 Njibhu <manu@njibhu.eu>
+ * This code is published under MIT License.
+ **/
+
+
 /*
  * For now it does copy a lot of the data because the C++ cannot access JS memory, 
  * so we have to copy everything. But JS can read C++ memory.
  * So, future plans are to integrate with LocalReader and read the datastream directly
  * into c++ memory so there is 0 copy.
  */
+
 
 /**
  * This function is a multitool to replace the t3dgw2tools binary.

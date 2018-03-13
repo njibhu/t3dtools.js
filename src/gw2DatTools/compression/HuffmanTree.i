@@ -1,3 +1,10 @@
+/**
+ * Copyright (2012-2015) Ahom: Antoine Hom
+ * https://github.com/ahom/gw2_reverse
+ * 
+ * (C) 2018 Njibhu
+ **/
+
 #ifndef GW2DATTOOLS_COMPRESSION_HUFFMANTREE_I
 #define GW2DATTOOLS_COMPRESSION_HUFFMANTREE_I
 

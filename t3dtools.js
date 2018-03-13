@@ -15,11 +15,34 @@ var Module = typeof Module !== 'undefined' ? Module : {};
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
+/**
+ * Copyright 2018 Njibhu <manu@njibhu.eu>
+ * This code is published under MIT License.
+ **/
+
+
 /*
  * For now it does copy a lot of the data because the C++ cannot access JS memory, 
  * so we have to copy everything. But JS can read C++ memory.
  * So, future plans are to integrate with LocalReader and read the datastream directly
  * into c++ memory so there is 0 copy.
+ */
+
+
+/**
+ * This function is a multitool to replace the t3dgw2tools binary.
+ * @method inflate
+ * @param  {ArrayBuffer}    inputBuffer  Buffer containing the input data
+ * @param  {number}         extractSize  Can limit the extraction size, a too
+ *                                       big value will be shrinken down.
+ * @param  {boolean}        isImage      Will decode the image format.
+ * @return {Object}  Object containing an output buffer, and image infos
+ * 
+ * The return object have the following fields:
+ * - {ArrayBuffer}  object.data
+ * - {number}       object.dxtType  (only existing if isImage = true)
+ * - {number}       object.imgW     width (only existing if isImage = true)
+ * - {number}       object.imgH     height (only existing if isImage = true)
  */
 function inflate(inputBuffer, extractSize, isImage){
     if(extractSize < 1 ) throw new Error("Incorrect size");
@@ -91,6 +114,19 @@ function inflate(inputBuffer, extractSize, isImage){
     return inflate_value;
 }
 
+/**
+ * This function was here mostly to check that the decoding was working fine.
+ * But if a file have been already inflated it can read the image.
+ * @method inflateImage
+ * @param  {ArrayBuffer} inputBuffer Buffer containing the input data
+ * @return {Object} Object containing an output buffer, and image infos
+ * 
+ * The return object have the following fields:
+ * - {ArrayBuffer}  object.data
+ * - {number}       object.dxtType
+ * - {number}       object.imgW     width
+ * - {number}       object.imgH     height
+ */
 function inflateImage(inputBuffer) {
     var inflate_value = {};
     var input = Module._malloc(inputBuffer.length);
@@ -16348,7 +16384,7 @@ function __ZN5gw2dt5utils8BitArrayIjEC2EPKhjj($0,$1,$2,$3) {
   __ZN5gw2dt5utils8BitArrayIjE4pullERjRh($8,$22,$23);
   STACKTOP = sp;return;
  } else {
-  ___assert_fail((10993|0),(11022|0),23,(11108|0));
+  ___assert_fail((10993|0),(11022|0),29,(11108|0));
   // unreachable;
  }
 }

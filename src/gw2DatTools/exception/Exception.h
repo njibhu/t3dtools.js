@@ -1,3 +1,10 @@
+/**
+ * Copyright (2012-2015) Ahom: Antoine Hom
+ * https://github.com/ahom/gw2_reverse
+ * 
+ * (C) 2018 Njibhu
+ **/
+
 #ifndef GW2DATTOOLS_EXCEPTION_EXCEPTION_H
 #define GW2DATTOOLS_EXCEPTION_EXCEPTION_H
 

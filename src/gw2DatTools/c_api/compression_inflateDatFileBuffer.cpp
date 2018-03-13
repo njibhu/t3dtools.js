@@ -1,3 +1,9 @@
+/**
+ * Copyright (2012-2015) Ahom: Antoine Hom
+ * https://github.com/ahom/gw2_reverse
+ * 
+ **/
+
 #include "gw2DatTools/c_api/compression_inflateDatFileBuffer.h"
 
 #include <exception>

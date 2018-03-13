@@ -1,6 +1,9 @@
 # T3DTOOLS.js
 
-## COPYRIGHT: most of the code here is from [github.com/ahom](http://github.com/ahom),  [github.com/RequestTimeout408](http://github.com/RequestTimeout408), the squish library is licensed under MIT license by Simon Brown (si@sjbrown.co.uk) and my code here is public domain.
+## COPYRIGHT: The code in this repository comes from many different places
+* [github.com/ahom](http://github.com/ahom)
+* [github.com/RequestTimeout408](http://github.com/RequestTimeout408)
+* The squish library is licensed under MIT license by Simon Brown (si@sjbrown.co.uk)
 
 This is a port of the t3dgw2tools with emscripten.
 Node example:
@@ -22,6 +25,11 @@ var data = t3dtools.inflate(test, testOutputSize);
 * I'm currently working on a fork of Tyria3DLib to integrate it.
 * The performance haven't been tested but it should be quite bad compared to the original version. But !
   there is a lot of work and optimizations that can be done which should make it even faster than the original.
+* The best place for documentation is src/pre.js
 
-## The copyright headers will be added very soon ! Don't yell at me please !
+## TODO next:
+* Adding a wrapper with WebWorkers to covers the most easily the integration with Tyria3DLibrary
+* Change all the exceptions to error checks (Will enable further optimisations with Emscripten)
+* Enable -Oz compilation and WASM output (should provide much better perf)
+* Remove all the data copy (see src/pre.js)
  

@@ -51,7 +51,6 @@ string(CONCAT LINK_OPTIONS
 
 
 add_executable(t3dtools src/t3dtools.cc)
-target_compile_options(t3dtools PUBLIC "--bind")
 target_sources(t3dtools PUBLIC src/3dcx.cc)
 target_link_libraries(t3dtools gw2DatTools gw2Formats libsquish)
 set_target_properties(t3dtools PROPERTIES LINK_FLAGS ${LINK_OPTIONS})
