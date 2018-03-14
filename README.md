@@ -11,12 +11,8 @@ Node example:
 ```javascript
 const t3dtools = require('./t3dtools.js')(); //Extra parenthesis to load the emscripten module
 const fs = require('fs');
-var test;
-fs.readFile('chunk.packed', (err, data) => {
-    if(err) throw data;
-    test = data;
-});
-var data = t3dtools.inflate(test, testOutputSize);
+var test = fs.readFileSync('chunk.packed');
+var data = t3dtools.inflate(test);
 ```
 
 ## This is not some unworking code anymore ! Tested with Node and Firefox. Some changes since last attempt:
