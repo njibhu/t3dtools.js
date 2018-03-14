@@ -17,7 +17,7 @@ var data = t3dtools.inflate(test);
 
 ## This is not some unworking code anymore ! Tested with Node and Firefox. Some changes since last attempt:
 * Pepperjs is actually not such a good idea since it is unmaintained and both emscripten and the pepper API evolved.
-* It's tested with Tyria3DLibrary and actually works (Link to repo will come soon!)
+* Tested with Tyria3DLibrary:(https://github.com/njibhu/Tyria3DLibrary/tree/t3dtools.js)
 * The performance haven't been tested but it should be quite bad compared to the original version. But !
   there is a lot of work and optimizations that can be done which should make it even faster than the original.
 * The best place for documentation is src/pre.js
