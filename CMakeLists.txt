@@ -6,7 +6,6 @@ SET(CMAKE_C_COMPILER emcc)
 SET(CMAKE_CXX_COMPILER em++)
 SET(CMAKE_AR emar)
 SET(CMAKE_RANLIB emranlib)
-SET(CMAKE_CXX_FLAGS-g)
 add_definitions(-std=c++11)
 
 include_directories(src/)
@@ -43,14 +42,29 @@ add_library(libsquish STATIC
 	src/squish/alpha.cpp
 )
 
-string(CONCAT LINK_OPTIONS
-	"--pre-js src/pre.js "
-	"-s EXPORTED_FUNCTIONS='[\"_inflate\", \"_workImage\"]' "
-	"-s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"setValue\", \"writeArrayToMemory\", \"getValue\"]'"
+string(CONCAT ALL_LINK_OPTIONS
+	" --pre-js src/pre.js"
+	" -s EXPORTED_FUNCTIONS='[\"_inflate\", \"_workImage\"]'"
+	" -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"setValue\", \"writeArrayToMemory\", \"getValue\"]'"
+	" -s ALLOW_MEMORY_GROWTH=1"
 )
 
+string(CONCAT T3DTOOLS_LINK_OPTIONS
+	${ALL_LINK_OPTIONS}
+	" -s \"EXPORT_NAME='t3dtools'\" -s MODULARIZE=1"
+)
+
+string(CONCAT T3DWORKER_LINK_OPTIONS
+	${ALL_LINK_OPTIONS}
+	" --post-js src/t3dlib_worker.js"
+)
 
 add_executable(t3dtools src/t3dtools.cc)
 target_sources(t3dtools PUBLIC src/3dcx.cc)
 target_link_libraries(t3dtools gw2DatTools gw2Formats libsquish)
-set_target_properties(t3dtools PROPERTIES LINK_FLAGS ${LINK_OPTIONS})
+set_target_properties(t3dtools PROPERTIES LINK_FLAGS ${T3DTOOLS_LINK_OPTIONS})
+
+add_executable(t3dworker src/t3dtools.cc)
+target_sources(t3dworker PUBLIC src/3dcx.cc)
+target_link_libraries(t3dworker gw2DatTools gw2Formats libsquish)
+set_target_properties(t3dworker PROPERTIES LINK_FLAGS ${T3DWORKER_LINK_OPTIONS})

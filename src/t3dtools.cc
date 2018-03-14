@@ -15,6 +15,11 @@
 #include "squish/squish.h"
 #include "3dcx.h"
 
+extern "C" {
+    //Help to make fast rebuilds
+    const int16_t BUILD_VERSION = 15;
+}
+
 //Support for GW1 textures have been dropped since it's not used in Tyria3DLib
 
 //TODO [1]: Port all exceptions to errorcodes
@@ -24,10 +29,8 @@ enum ErrorCode
     INFLATER_EXCEPTION = 0x01,
     STD_EXCEPTION = 0x02,
     IMG_NO_MIPMAP_FOUND = 0x03, // No mipmap levels found!
-    IMG_UNKNOWN_MIPMAP_FORMAT = 0x04
-
+    IMG_UNKNOWN_MIPMAP_FORMAT = 0x04,
 };
-
 
 extern "C"{
     uint8_t* inflate(uint32_t inputSize, const uint8_t* pInputBuffer, uint32_t& orOutputSize, uint8_t& pErrors) 
