@@ -27,7 +27,7 @@ self.addEventListener('message',
             result = Module.inflate(arrayBuffer, capLength, isImage);
         } catch(err) {
             error = true;
-            self.postMessage(err.toString());
+            self.postMessage(`${handle}: ${err.toString()}`);
         }
         
         if(!error){
