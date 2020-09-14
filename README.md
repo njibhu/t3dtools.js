@@ -1,3 +1,6 @@
+
+# This repository has been moved to [github.com/njibhu/t3d](https://github.com/njibhu/t3d) ⚠️
+
 # T3DTOOLS.js
 
 ## COPYRIGHT: The code in this repository comes from many different places
